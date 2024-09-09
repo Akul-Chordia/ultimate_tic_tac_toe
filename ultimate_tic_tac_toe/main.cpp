@@ -47,10 +47,12 @@ public:
     void print(){
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
-                std::cout << grid[i][j] << "|";
+                std::cout << grid[i][j];
+                if (j<2){ std::cout << "|";};
             };
-            std::cout << "\n_____\n";
+            if (i<2){std::cout << "\n_____\n";};
         };
+        std::cout << "\n";
     };
 };
 
@@ -81,9 +83,10 @@ int main(){
     char player = 'X';
     while (true){
         game.print();
+        std::cout << "Player " << player << "'s turn : ";
         std::cin >> row >> col;
         if (!game.move(row, col, player)){
-            std::cout<<"Invalid Move";
+            std::cout<<"Invalid Move\n";
         };
         game.checkwin(player);
         if (game.winner != ' ' || game.isfull()){
