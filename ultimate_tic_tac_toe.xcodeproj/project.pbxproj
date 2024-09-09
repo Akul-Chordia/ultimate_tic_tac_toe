@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CF2C0D642C5E5B9A005E56B4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF2C0D632C5E5B9A005E56B4 /* main.cpp */; };
-		CF66211C2C6E4738006F0528 /* libglfw.3.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF66211B2C6E4738006F0528 /* libglfw.3.4.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		CF2C0D602C5E5B9A005E56B4 /* ultimate_tic_tac_toe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ultimate_tic_tac_toe; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2C0D632C5E5B9A005E56B4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CF66211B2C6E4738006F0528 /* libglfw.3.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.4.dylib; path = ../../../../opt/homebrew/Cellar/glfw/3.4/lib/libglfw.3.4.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF66211C2C6E4738006F0528 /* libglfw.3.4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +43,6 @@
 			children = (
 				CF2C0D622C5E5B9A005E56B4 /* ultimate_tic_tac_toe */,
 				CF2C0D612C5E5B9A005E56B4 /* Products */,
-				CF66211A2C6E4738006F0528 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,14 +60,6 @@
 				CF2C0D632C5E5B9A005E56B4 /* main.cpp */,
 			);
 			path = ultimate_tic_tac_toe;
-			sourceTree = "<group>";
-		};
-		CF66211A2C6E4738006F0528 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CF66211B2C6E4738006F0528 /* libglfw.3.4.dylib */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,11 +245,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.4/lib;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/homebrew/Cellar/glfw/3.4/lib,
-				);
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -270,11 +255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.4/lib;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/homebrew/Cellar/glfw/3.4/lib,
-				);
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
