@@ -41,6 +41,13 @@ public:
         if (grid[0][0] == player && grid[1][1] == player && grid[2][2] == player) winner = player;
         if (grid[0][2] == player && grid[1][1] == player && grid[2][0] == player) winner = player;
         
+        if (winner == player){
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 3; j++){
+                    grid[i][j] = player;
+                };
+            };
+        }
         return winner;
     };
 };
@@ -61,10 +68,17 @@ public:
         }
         boards = std::vector<tictactoe>(9);
     };
+    
+    tictactoe getboard(int board){
+        return this->boards[board];
+    }
 
     bool move(int board, int row, int col, char player){
         if (boards[board].move(row, col, player)){
             grid[board/3][board%3] = boards[board].checkwin(player);
+            if (grid[board/3][board%3] != ' '){
+                
+            };
             return true;
         } else {
             return false;
@@ -126,6 +140,9 @@ int main(){
             continue;
         };
         board = row*3 + col;
+        if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
+            board = -1;
+        };
         game.gamewin(player);
         (player == 'X') ? player = 'O' : player = 'X';
     };
