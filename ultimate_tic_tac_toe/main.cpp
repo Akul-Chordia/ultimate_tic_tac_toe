@@ -32,26 +32,24 @@ int main(){
     int row, col;
     int board = -1;
     int AImode = -1;
-    char multiplayer;
+    int computer;
     
     srand((int)time(0));
-    
+    std::cout <<"\n~~~~~~~~~~~~~~~~Ultimate Tic Tac Toe~~~~~~~~~~~~~~~~\n";
     while (true){
-        std::cout << "Do you want to play in multiplayer mode? (y/n) : ";
-        std::cin >> multiplayer;
-        if (multiplayer == 'n' || multiplayer == 'N'){
+        computer = scin("\n~~~~~~  Multiplayer (0)   or   Computer (1)  ~~~~~~~\n");
+        if (computer == 1){
             AImode = scin("Enter AI level (0-3) : ");
             break;
-        } else if (multiplayer == 'y' || multiplayer == 'Y') {
+        } else if (computer == 0) {
             break;
         } else {
             continue;
         }
     }
-    game.print();
     
     while (true){
-        
+        game.print();
         
         if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
             board = -1;
@@ -71,10 +69,8 @@ int main(){
             continue;
         }
         
-        game.print();
-        
-        board = row*3 + col;
-        //board = 1;
+        //board = row*3 + col;
+        board = 1;
         game.gameover();
         
         if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
@@ -83,15 +79,15 @@ int main(){
         
         if (AImode == 0){
             while (true){
+                int row = -1, col = -1;
                 if (board == -1){
                     board = rand() % 9;
                 }
-                //board = 1;
-                AImove1(game.getboard(board), board ,&row ,&col ,'O', 0);
-                std::cout << row << col << std::endl;
+                board = 1;
+                AImove1(game.getboard(board) ,&row ,&col);
                 if (game.move(board, row, col)){
-                    board = row*3 + col;
-                    //board = 1;
+                    //board = row*3 + col;
+                    board = 1;
                     break;
                 }
             }
