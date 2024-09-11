@@ -19,16 +19,16 @@ public:
         } else {
             return false;
         }
-    };
+    }
     
     bool isfull(){
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 if (grid[i][j] == ' ') return false;
-            };
-        };
+            }
+        }
         return true;
-    };
+    }
     
     bool checkwin(char player){
         for (int i = 0; i < 3; i++) {
@@ -41,17 +41,17 @@ public:
         
         if (winner != ' '){
             return true;
-        };
+        }
         return false;
-    };
+    }
     
     void smallwinner(){
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 grid[i][j] = this -> winner;
-            };
-        };
-    };
+            }
+        }
+    }
 };
 
 
@@ -71,15 +71,15 @@ public:
             *(&grid[0][0] + i) = ' ';
         }
         boards = std::vector<tictactoe>(9);
-    };
+    }
     
     tictactoe getboard(int board){
         return this->boards[board];
-    };
+    }
     
     char getplayer(){
         return this -> player;
-    };
+    }
 
     bool move(int board, int row, int col){
         if (row < 3 && row > -1 && col < 3 && col > -1){
@@ -87,13 +87,13 @@ public:
                 if (boards[board].checkwin(player)){
                     grid[board/3][board%3] = boards[board].winner;
                     boards[board].smallwinner();
-                };
+                }
                 (player == 'X') ? player = 'O' : player = 'X';
                 return true;
-            };
-        };
+            }
+        }
         return false;
-    };
+    }
 
     bool gamewin(){
         for (int i = 0; i < 3; i++) {
@@ -106,29 +106,29 @@ public:
         
         if (winner != ' '){
             return true;
-        };
+        }
         return false;
-    };
+    }
     
     void gameover(){
         if (winner != ' '){
             std::cout << "Player " << this -> winner << " wins!!";
             exit(0);
-        };
+        }
         if (tie()){
             std::cout << "It's a tie -_-";
             exit(0);
-        };
-    };
+        }
+    }
     
     bool tie(){
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 if (grid[i][j] == ' ') return false;
-            };
-        };
+            }
+        }
         return true;
-    };
+    }
     
     void print(){
         for (int i = 0; i < 3; i++) {
@@ -137,12 +137,12 @@ public:
                     for (int col = 0; col < 3; col++) {
                         std::cout << boards[i * 3 + j].grid[row][col];
                         if (col < 2) std::cout << "||";
-                    };
+                    }
                     std::cout << "  ";
-                };
+                }
                 std::cout << "\n";
-            };
+            }
             if (i < 2) std::cout << "-------  -------  -------\n";
-        };
-    };
+        }
+    }
 };

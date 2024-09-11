@@ -20,18 +20,18 @@ int scin(const std::string& prompt) {
             std::cin.ignore(1000, '\n');
             if (number == 69){
                 exit(69);
-            };
+            }
             return number;
-        };
-    };
-};
+        }
+    }
+}
 
 
 int main(){
     ultimate game;
     int row, col;
     int board = -1;
-    int AImode = 0;
+    int AImode = -1;
     char multiplayer;
     
     srand((int)time(0));
@@ -46,29 +46,29 @@ int main(){
             break;
         } else {
             continue;
-        };
-    };
+        }
+    }
     
     while (true){
         game.print();
         
         if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
             board = -1;
-        };
+        }
         
         std::cout << "Player " << game.getplayer() << "'s turn : \n";
         
         if (board == -1){
             board = scin("Enter Board (0-8) : ");
-        };
-
+        }
+        
         row = scin("Enter row (0-2) : ");
         col = scin("Enter col (0-2) : ");
         
         if (!game.move(board, row, col)){
             std::cout<<"Invalid Move\n";
             continue;
-        };
+        }
         
         board = row*3 + col;
         //board = 1;
@@ -76,21 +76,22 @@ int main(){
         
         if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
             board = -1;
-        };
+        }
         
         if (AImode == 0){
-            
-        } else if (AImode == 1){
             while (true){
                 if (board == -1){
                     board = rand() % 9;
-                };
-                AImove1(game.getboard(board), board ,&row ,&col ,'O');
+                }
+                //board = 1;
+                AImove1(game.getboard(board), board ,&row ,&col ,'O', 0);
+                std::cout << row << col << std::endl;
                 if (game.move(board, row, col)){
                     board = row*3 + col;
+                    //board = 1;
                     break;
-                };
-            };
-        };
-    };
-};
+                }
+            }
+        }
+    }
+}
