@@ -131,18 +131,24 @@ public:
     }
     
     void print(){
+        std::cout << "╔═══════╦═══════╦═══════╗\n";
         for (int i = 0; i < 3; i++) {
             for (int row = 0; row < 3; row++) {
+                std::cout << "║ ";
                 for (int j = 0; j < 3; j++) {
                     for (int col = 0; col < 3; col++) {
                         std::cout << boards[i * 3 + j].grid[row][col];
-                        if (col < 2) std::cout << "||";
+                        if (col < 2) std::cout << "|";
                     }
-                    std::cout << "  ";
+                    if (j < 2) std::cout << " ║ ";
                 }
-                std::cout << "\n";
+                std::cout << " ║\n";
             }
-            if (i < 2) std::cout << "-------  -------  -------\n";
+            if (i < 2){
+                std::cout << "╠═══════╬═══════╬═══════╣\n";
+            } else {
+                std::cout << "╚═══════╩═══════╩═══════╝\n";
+            }
         }
     }
 };

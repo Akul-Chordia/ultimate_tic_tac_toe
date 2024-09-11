@@ -48,9 +48,10 @@ int main(){
             continue;
         }
     }
+    game.print();
     
     while (true){
-        game.print();
+        
         
         if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
             board = -1;
@@ -66,9 +67,11 @@ int main(){
         col = scin("Enter col (0-2) : ");
         
         if (!game.move(board, row, col)){
-            std::cout<<"Invalid Move\n";
+            std::cout<<"\nInvalid Move!!!\n";
             continue;
         }
+        
+        game.print();
         
         board = row*3 + col;
         //board = 1;
