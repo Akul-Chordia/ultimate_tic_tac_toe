@@ -3,7 +3,7 @@
 
 //approach 1 - pick the best move on that specific small board, pick random board if offered the choice
 
-int AI_0_eval(char grid[3][3], char player) {
+int AI_0_eval(char (&grid)[3][3], char player) {
     tictactoe* temp = new tictactoe();
     
     for (int i = 0; i < 3; i++){
@@ -24,7 +24,7 @@ int AI_0_eval(char grid[3][3], char player) {
     
 }
 
-int AI_0_minimax(char board[3][3], char player) {
+int AI_0_minimax(char (&board)[3][3], char player) {
     int winner = AI_0_eval(board, player);
     
     if(winner != 0){
@@ -34,16 +34,16 @@ int AI_0_minimax(char board[3][3], char player) {
     int move = -1;
     int score = -2;
     
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j<3; j++){
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++){
             
-            if(board[i][j] == ' ') {
+            if (board[i][j] == ' ') {
                 
                 board[i][j] = player;
                 
                 int thisScore = -AI_0_minimax(board, (player == 'O') ? 'X' : 'O');
                 
-                if(thisScore > score) {
+                if (thisScore > score) {
                     score = thisScore;
                     move = i;
                 }
@@ -51,7 +51,7 @@ int AI_0_minimax(char board[3][3], char player) {
             }
         }
     }
-    if(move == -1){
+    if (move == -1){
         return 0;
     }
     
@@ -59,20 +59,20 @@ int AI_0_minimax(char board[3][3], char player) {
 }
 
 
-void AI_move_0(char board[3][3], int* rowptr, int* colptr) {
+void AI_move_0(char (&board)[3][3], int* rowptr, int* colptr) {
 
     int row = -1, col = -1;
     int score = -2;
 
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++){
-            if(board[i][j] == ' ') {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++){
+            if (board[i][j] == ' ') {
                 board[i][j] = 'O';
                 
                 int tempScore = -AI_0_minimax(board, 'X');
                 board[i][j] = ' ';
                 
-                if(tempScore > score) {
+                if (tempScore > score) {
                     score = tempScore;
                     row = i;
                     col = j;

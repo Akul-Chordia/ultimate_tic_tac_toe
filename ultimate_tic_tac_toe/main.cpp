@@ -61,7 +61,6 @@ int main(){
         if (board == -1){
             board = safecin("Enter Board (0-8) : ");
         }
-        board = 1;
         
         row = safecin("Enter row (0-2) : ");
         col = safecin("Enter col (0-2) : ");
@@ -74,22 +73,26 @@ int main(){
         board = row*3 + col;
         //board = 1;
         
-        if (AImode == 0){
+        if (computer == 1){
             if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
                 board = -1;
             }
-            while (true){
-                int row = -1, col = -1;
-                if (board == -1){
-                    board = rand() % 9;
-                }
-                //board = 1;
-                AI_move_0(game.getboard(board).grid ,&row ,&col);
-                if (game.move(board, row, col)){
-                    board = row*3 + col;
+            if (AImode == 0){
+                while (true){
+                    int row = -1, col = -1;
+                    if (board == -1){
+                        board = rand() % 9;
+                    }
                     //board = 1;
-                    break;
+                    AI_move_0(game.getboard(board).grid ,&row ,&col);
+                    if (game.move(board, row, col)){
+                        board = row*3 + col;
+                        //board = 1;
+                        break;
+                    }
                 }
+            } else if (AImode == 1){
+                
             }
         }
     }

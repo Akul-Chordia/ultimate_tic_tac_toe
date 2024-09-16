@@ -84,7 +84,7 @@ public:
         boards = std::vector<tictactoe>(9);
     }
     
-    tictactoe getboard(int board){
+    tictactoe& getboard(int board){
         return this->boards[board];
     }
     
