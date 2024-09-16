@@ -1,7 +1,9 @@
 #pragma once
 #include "tictactoe_class.h"
 
-//approach 1 - pick the best move on that specific small board, pick random board if offered the choice
+//pick the best move on that specific small board
+//pick random board if offered the choice
+//pick random move if board is empty
 
 int AI_0_eval(char (&grid)[3][3], char player) {
     tictactoe* temp = new tictactoe();
@@ -31,7 +33,7 @@ int AI_0_minimax(char (&board)[3][3], char player) {
         return -1;
     }
 
-    int move = -1;
+    bool move = false;
     int score = -2;
     
     for (int i = 0; i < 3; i++) {
@@ -45,13 +47,13 @@ int AI_0_minimax(char (&board)[3][3], char player) {
                 
                 if (thisScore > score) {
                     score = thisScore;
-                    move = i;
+                    move = true;
                 }
                 board[i][j] = ' ';
             }
         }
     }
-    if (move == -1){
+    if (!move){
         return 0;
     }
     
@@ -59,7 +61,23 @@ int AI_0_minimax(char (&board)[3][3], char player) {
 }
 
 
-void AI_move_0(char (&board)[3][3], int* rowptr, int* colptr) {
+int AI_move_0(char (&board)[3][3], int* rowptr, int* colptr) {
+    
+    bool is_empty = true;
+    
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++){
+            if (board[i][j] != ' '){
+                is_empty = false;
+            }
+        }
+    }
+    
+    if (is_empty){
+        *rowptr = rand() % 3;
+        *colptr = rand() % 3;
+        return 0;
+    }
 
     int row = -1, col = -1;
     int score = -2;
@@ -82,4 +100,5 @@ void AI_move_0(char (&board)[3][3], int* rowptr, int* colptr) {
     }
     *rowptr = row;
     *colptr = col;
+    return 0;
 }
