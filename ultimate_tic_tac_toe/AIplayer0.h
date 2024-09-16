@@ -41,7 +41,7 @@ int AI_0_minimax(char board[3][3], char player) {
                 
                 board[i][j] = player;
                 
-                int thisScore = -minimax(board, (player == 'O') ? 'X' : 'O');
+                int thisScore = -AI_0_minimax(board, (player == 'O') ? 'X' : 'O');
                 
                 if(thisScore > score) {
                     score = thisScore;
@@ -69,7 +69,7 @@ void AI_move_0(char board[3][3], int* rowptr, int* colptr) {
             if(board[i][j] == ' ') {
                 board[i][j] = 'O';
                 
-                int tempScore = -minimax(board, 'X');
+                int tempScore = -AI_0_minimax(board, 'X');
                 board[i][j] = ' ';
                 
                 if(tempScore > score) {

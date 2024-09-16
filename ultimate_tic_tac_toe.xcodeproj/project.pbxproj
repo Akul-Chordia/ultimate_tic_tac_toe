@@ -26,7 +26,7 @@
 		CF2C0D602C5E5B9A005E56B4 /* ultimate_tic_tac_toe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ultimate_tic_tac_toe; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2C0D632C5E5B9A005E56B4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CFAA12512C90B81A006727A6 /* tictactoe_class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tictactoe_class.h; sourceTree = "<group>"; };
-		CFAA12522C90B907006727A6 /* AIplayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIplayer.h; sourceTree = "<group>"; };
+		CFAA12522C90B907006727A6 /* AIplayer0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIplayer0.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			children = (
 				CF2C0D632C5E5B9A005E56B4 /* main.cpp */,
 				CFAA12512C90B81A006727A6 /* tictactoe_class.h */,
-				CFAA12522C90B907006727A6 /* AIplayer.h */,
+				CFAA12522C90B907006727A6 /* AIplayer0.h */,
 			);
 			path = ultimate_tic_tac_toe;
 			sourceTree = "<group>";

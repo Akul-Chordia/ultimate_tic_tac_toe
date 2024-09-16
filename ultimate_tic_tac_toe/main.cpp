@@ -3,7 +3,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "tictactoe_class.h"
-#include "AIplayer.h"
+#include "AIplayer0.h"
+
 
 
 int safecin(const std::string& prompt) {
@@ -60,6 +61,7 @@ int main(){
         if (board == -1){
             board = safecin("Enter Board (0-8) : ");
         }
+        board = 1;
         
         row = safecin("Enter row (0-2) : ");
         col = safecin("Enter col (0-2) : ");
@@ -70,6 +72,7 @@ int main(){
         }
         
         board = row*3 + col;
+        //board = 1;
         
         if (AImode == 0){
             if (game.getboard(board).isfull() || game.getboard(board).winner != ' '){
@@ -81,7 +84,7 @@ int main(){
                     board = rand() % 9;
                 }
                 //board = 1;
-                AImove1(game.getboard(board) ,&row ,&col);
+                AI_move_0(game.getboard(board).grid ,&row ,&col);
                 if (game.move(board, row, col)){
                     board = row*3 + col;
                     //board = 1;
